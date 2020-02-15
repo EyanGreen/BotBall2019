@@ -1,0 +1,28 @@
+#include <kipr/botball.h>
+//Prototypes
+
+void movestraight (int,int);
+void leftturn (int);
+void rightturn (int);
+void movebackward (int,int);
+void moveservo (int,int);
+//Variables
+int main()
+{
+    int claw_port = 3;
+    int arm_port = 0;
+    int claw_open = 1600; 
+    int claw_close = 845;
+    int arm_up = 1050;
+    int arm_down = 1600;
+    
+    enable_servos();
+    moveservo(arm_port,arm_down);
+    msleep(500);
+    moveservo(claw_port,claw_open); 
+    msleep(500);
+    movestraight(850,90);
+    leftturn(2000);
+    movebackward(3050,90);  
+    rightturn(2000);
+
